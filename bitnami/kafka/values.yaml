@@ -920,6 +920,13 @@ persistence:
   ## @param persistence.mountPath Mount path of the Kafka data volume
   ##
   mountPath: /bitnami/kafka
+  ## @param persistence.subPath subPath of the Kafka data volume
+  ##
+  subPath: ""
+  ## @param persistence.subPathExpr subPathExpr of the Kafka data volume
+  ##
+  subPathExpr: ""
+
 ## Log Persistence parameters
 ##
 logPersistence:
@@ -957,6 +964,12 @@ logPersistence:
   ## @param logPersistence.mountPath Mount path of the Kafka logs volume
   ##
   mountPath: /opt/bitnami/kafka/logs
+  ## @param persistence.subPath subPath of the Kafka data volume
+  ##
+  subPath: ""
+  ## @param persistence.subPathExpr subPathExpr of the Kafka data volume
+  ##
+  subPathExpr: ""
 
 ## @section Volume Permissions parameters
 ##

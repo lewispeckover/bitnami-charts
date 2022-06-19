@@ -117,8 +117,20 @@ spec:
           volumeMounts:
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
+              {{- if .Values.persistence.subPath }}
+              subPath: {{ .Values.persistence.subPath }}
+              {{- end }}
+              {{- if .Values.persistence.subPathExpr }}
+              subPathExpr: {{ .Values.persistence.subPathExpr }}
+              {{- end }}
             - name: logs
               mountPath: {{ .Values.logPersistence.mountPath }}
+              {{- if .Values.logPersistence.subPath }}
+              subPath: {{ .Values.logPersistence.subPath }}
+              {{- end }}
+              {{- if .Values.logPersistence.subPathExpr }}
+              subPathExpr: {{ .Values.logPersistence.subPathExpr }}
+              {{- end }}
         {{- end }}
         {{- if and .Values.externalAccess.enabled .Values.externalAccess.autoDiscovery.enabled }}
         - name: auto-discovery
@@ -411,8 +423,20 @@ spec:
           volumeMounts:
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
+              {{- if .Values.persistence.subPath }}
+              subPath: {{ .Values.persistence.subPath }}
+              {{- end }}
+              {{- if .Values.persistence.subPathExpr }}
+              subPathExpr: {{ .Values.persistence.subPathExpr }}
+              {{- end }}
             - name: logs
               mountPath: {{ .Values.logPersistence.mountPath }}
+              {{- if .Values.logPersistence.subPath }}
+              subPath: {{ .Values.logPersistence.subPath }}
+              {{- end }}
+              {{- if .Values.logPersistence.subPathExpr }}
+              subPathExpr: {{ .Values.logPersistence.subPathExpr }}
+              {{- end }}
             {{- if or .Values.config .Values.existingConfigmap }}
             - name: kafka-config
               mountPath: {{ .Values.persistence.mountPath }}/config/server.properties
